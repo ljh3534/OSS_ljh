@@ -1,6 +1,6 @@
 # 스프린트 지표 분석
 
-_2026-10-13 15:20 KST 기준 · `scripts/sprint_metrics.py`가 자동 생성_
+_2026-10-13 15:21 KST 기준 · `scripts/sprint_metrics.py`가 자동 생성_
 
 ## Cycle Time
 
@@ -8,7 +8,7 @@ _2026-10-13 15:20 KST 기준 · `scripts/sprint_metrics.py`가 자동 생성_
 
 | 완료 이슈 | 평균 | 중앙값 | 최소 | 최대 |
 |---|---|---|---|---|
-| 9건 | 3분 | 4분 | 4초 | 7분 |
+| 10건 | 4분 | 4분 | 4초 | 8분 |
 
 | 이슈 | 포인트 | Cycle Time |
 |---|---|---|
@@ -18,6 +18,7 @@ _2026-10-13 15:20 KST 기준 · `scripts/sprint_metrics.py`가 자동 생성_
 | [#4](https://github.com/ljh3534/OSS_ljh/issues/4) [Feature] Chart.js 대시보드 | 5 | 3분 |
 | [#5](https://github.com/ljh3534/OSS_ljh/issues/5) [Feature] 주간 보고서 자동 생성 및 JSON 아티팩트 저장 | 3 | 3분 |
 | [#6](https://github.com/ljh3534/OSS_ljh/issues/6) [Chore] 이슈 템플릿(Bug/Feature)과 라벨 체계 정리 | 1 | 7분 |
+| [#7](https://github.com/ljh3534/OSS_ljh/issues/7) [Docs] README에 대시보드 이미지와 지표 정의 정리 | 2 | 8분 |
 | [#8](https://github.com/ljh3534/OSS_ljh/issues/8) [Feature] 스프린트 지표(Cycle Time·Velocity·Burndown) 분석 스크립트 | 3 | 7분 |
 | [#16](https://github.com/ljh3534/OSS_ljh/issues/16) [Bug] 1분 미만 Lead Time이 "0분"으로 표시됨 | 1 | 4초 |
 | [#17](https://github.com/ljh3534/OSS_ljh/issues/17) [Incident][훈련] 대시보드 접속 불가 상황 대응 훈련 | 0 | 8초 |
@@ -28,7 +29,7 @@ _2026-10-13 15:20 KST 기준 · `scripts/sprint_metrics.py`가 자동 생성_
 
 | 스프린트 | 마감 | 이슈 (완료/전체) | 계획 포인트 | 완료 포인트 | 달성률 |
 |---|---|---|---|---|---|
-| Sprint 1 — 수집·대시보드 MVP | 10-26 | 8/9 | 25 | 23 | 92% |
+| Sprint 1 — 수집·대시보드 MVP | 10-26 | 9/9 | 25 | 25 | 100% |
 | Sprint 2 — 정확도·확장 | 11-09 | 0/5 | 15 | 0 | 0% |
 
 ## Burndown
@@ -37,7 +38,7 @@ _2026-10-13 15:20 KST 기준 · `scripts/sprint_metrics.py`가 자동 생성_
 
 | 날짜 | 이상적 잔여 | 실제 잔여 |
 |---|---|---|
-| 10-13 | 25 | 2 |
+| 10-13 | 25 | 0 |
 | 10-14 | 23.1 |  |
 | 10-15 | 21.2 |  |
 | 10-16 | 19.2 |  |

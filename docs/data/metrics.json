@@ -1,6 +1,6 @@
 {
   "repository": "ljh3534/OSS_ljh",
-  "generated_at": "2026-10-13T06:20:01+00:00",
+  "generated_at": "2026-10-13T06:21:38+00:00",
   "window": {
     "days": 28,
     "from": "2026-09-15",
@@ -9,14 +9,14 @@
   "environment": "github-pages",
   "metrics": {
     "deployment_frequency": {
-      "count": 3,
-      "per_week": 0.75,
-      "level": "Medium"
+      "count": 4,
+      "per_week": 1.0,
+      "level": "High"
     },
     "lead_time": {
-      "median_hours": 0.008,
-      "mean_hours": 0.022,
-      "commits": 9,
+      "median_hours": 0.009,
+      "mean_hours": 0.021,
+      "commits": 10,
       "level": "Elite"
     },
     "mttr": {
@@ -26,10 +26,10 @@
       "level": "Elite"
     },
     "change_failure_rate": {
-      "percent": 33.3,
+      "percent": 25.0,
       "failed": 1,
-      "total": 3,
-      "level": "Medium"
+      "total": 4,
+      "level": "High"
     }
   },
   "daily_deployments": [
@@ -143,7 +143,7 @@
     },
     {
       "date": "2026-10-13",
-      "count": 3
+      "count": 4
     }
   ],
   "deployments": [
@@ -169,6 +169,14 @@
       "status": "success",
       "commits": 2,
       "lead_time_hours": 0.009,
+      "incident": null
+    },
+    {
+      "sha": "5a044bc",
+      "finished_at": "2026-10-13T06:21:32+00:00",
+      "status": "success",
+      "commits": 1,
+      "lead_time_hours": 0.011,
       "incident": null
     }
   ],

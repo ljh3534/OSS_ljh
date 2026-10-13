@@ -15,10 +15,10 @@ _2026-09-15 ~ 2026-10-13 기준, 자동 생성됨 · [대시보드](https://ljh3
 
 | 지표 | 값 | 등급 | 전주 대비 |
 |---|---|---|---|
-| Deployment Frequency | 주 0.75회 (기간 내 3회) | Medium | — |
-| Lead Time for Changes | 29초 (중앙값, 커밋 9개) | Elite | — |
+| Deployment Frequency | 주 1회 (기간 내 4회) | High | — |
+| Lead Time for Changes | 32초 (중앙값, 커밋 10개) | Elite | — |
 | MTTR | 7초 (해결 1건, 미해결 0건) | Elite | — |
-| Change Failure Rate | 33.3% (1/3) | Medium | — |
+| Change Failure Rate | 25% (1/4) | High | — |
 <!-- DORA:END -->
 
 [![DORA Lens 대시보드](docs/assets/dashboard.png)](https://ljh3534.github.io/OSS_ljh/)
