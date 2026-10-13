@@ -15,10 +15,10 @@ _2026-09-15 ~ 2026-10-13 기준, 자동 생성됨 · [대시보드](https://ljh3
 
 | 지표 | 값 | 등급 | 전주 대비 |
 |---|---|---|---|
-| Deployment Frequency | 주 0.25회 (기간 내 1회) | Medium | — |
-| Lead Time for Changes | 0분 (중앙값, 커밋 6개) | Elite | — |
+| Deployment Frequency | 주 0.5회 (기간 내 2회) | Medium | — |
+| Lead Time for Changes | 29초 (중앙값, 커밋 7개) | Elite | — |
 | MTTR | — (해결 0건, 미해결 0건) | — | — |
-| Change Failure Rate | 0% (0/1) | Elite | — |
+| Change Failure Rate | 0% (0/2) | Elite | — |
 <!-- DORA:END -->
 
 ## 저장소 구조
