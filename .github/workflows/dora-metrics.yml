@@ -1,0 +1,69 @@
+name: DORA Metrics
+
+# DORA 4대 지표를 수집해 JSON 아티팩트로 저장하고, 주간 보고서를 생성해 커밋한다.
+on:
+  schedule:
+    - cron: "0 0 * * 1" # 매주 월요일 09:00 KST
+  workflow_run:
+    workflows: [Deploy]
+    types: [completed]
+  workflow_dispatch:
+    inputs:
+      window_days:
+        description: 집계 기간(일)
+        default: "28"
+
+permissions:
+  contents: write
+  deployments: read
+  issues: read
+
+concurrency:
+  group: dora-metrics
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: DORA 지표 수집
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          WINDOW_DAYS: ${{ inputs.window_days || '28' }}
+        run: python scripts/collect_dora.py
+
+      - name: 주간 보고서 생성
+        run: |
+          python scripts/render_report.py
+          cat "$(ls reports/weekly/*.md | tail -1)" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: JSON 아티팩트 업로드
+        uses: actions/upload-artifact@v4
+        with:
+          name: dora-metrics-${{ github.run_number }}
+          path: |
+            docs/data/metrics.json
+            docs/data/history.json
+            reports/weekly/
+          retention-days: 90
+
+      - name: 결과 커밋
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/data reports README.md
+          if git diff --cached --quiet; then
+            echo "변경 사항 없음"
+            exit 0
+          fi
+          git commit -m "chore(metrics): DORA 지표 갱신 $(date -u +%F)"
+          git pull --rebase origin main
+          git push origin HEAD:main

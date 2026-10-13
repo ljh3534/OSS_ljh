@@ -8,6 +8,11 @@
 | 2주차 | DORA 메트릭 수집 자동화 | [설명](week02/README.md) · [워크플로우](.github/workflows/dora-metrics.yml) · [대시보드](https://ljh3534.github.io/OSS_ljh/) · [주간 보고서](reports/weekly) |
 | 3주차 | GitHub Projects 계획·추적 체계 | [설명](week03/README.md) · [이슈](https://github.com/ljh3534/OSS_ljh/issues?q=is%3Aissue) · [마일스톤](https://github.com/ljh3534/OSS_ljh/milestones) |
 
+## DORA 지표 현황
+
+<!-- DORA:START -->
+<!-- DORA:END -->
+
 ## 저장소 구조
 
 ```
