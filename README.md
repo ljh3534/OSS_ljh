@@ -21,6 +21,10 @@ _2026-09-15 ~ 2026-10-13 기준, 자동 생성됨 · [대시보드](https://ljh3
 | Change Failure Rate | 33.3% (1/3) | Medium | — |
 <!-- DORA:END -->
 
+[![DORA Lens 대시보드](docs/assets/dashboard.png)](https://ljh3534.github.io/OSS_ljh/)
+
+지표 정의와 수집 방식은 [week02/README.md](week02/README.md)에 정리했습니다.
+
 ## 저장소 구조
 
 ```
