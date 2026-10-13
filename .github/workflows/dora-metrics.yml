@@ -45,6 +45,11 @@ jobs:
           python scripts/render_report.py
           cat "$(ls reports/weekly/*.md | tail -1)" >> "$GITHUB_STEP_SUMMARY"
 
+      - name: 스프린트 지표 분석
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python scripts/sprint_metrics.py
+
       - name: JSON 아티팩트 업로드
         uses: actions/upload-artifact@v4
         with:
@@ -59,7 +64,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add docs/data reports README.md
+          git add docs/data reports week03/ANALYSIS.md README.md
           if git diff --cached --quiet; then
             echo "변경 사항 없음"
             exit 0
