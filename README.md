@@ -11,6 +11,14 @@
 ## DORA 지표 현황
 
 <!-- DORA:START -->
+_2026-09-15 ~ 2026-10-13 기준, 자동 생성됨 · [대시보드](https://ljh3534.github.io/OSS_ljh/) · [이번 주 보고서](reports/weekly/2026-W42.md)_
+
+| 지표 | 값 | 등급 | 전주 대비 |
+|---|---|---|---|
+| Deployment Frequency | 주 0.25회 (기간 내 1회) | Medium | — |
+| Lead Time for Changes | 0분 (중앙값, 커밋 6개) | Elite | — |
+| MTTR | — (해결 0건, 미해결 0건) | — | — |
+| Change Failure Rate | 0% (0/1) | Elite | — |
 <!-- DORA:END -->
 
 ## 저장소 구조
