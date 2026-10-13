@@ -98,6 +98,7 @@ const css = (name) => getComputedStyle(document.documentElement).getPropertyValu
 
 function duration(h) {
   if (h == null) return "—";
+  if (h * 60 < 1) return `${Math.round(h * 3600)}초`;
   if (h < 1) return `${Math.round(h * 60)}분`;
   if (h < 48) return `${h.toFixed(1)}시간`;
   return `${(h / 24).toFixed(1)}일`;

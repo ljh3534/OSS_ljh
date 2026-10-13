@@ -16,6 +16,8 @@ START, END = "<!-- DORA:START -->", "<!-- DORA:END -->"
 def duration(h):
     if h is None:
         return "—"
+    if h * 60 < 1:
+        return f"{h * 3600:.0f}초"
     if h < 1:
         return f"{h * 60:.0f}분"
     if h < 48:
