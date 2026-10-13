@@ -1,6 +1,6 @@
 {
   "repository": "ljh3534/OSS_ljh",
-  "generated_at": "2026-10-13T06:18:13+00:00",
+  "generated_at": "2026-10-13T06:20:01+00:00",
   "window": {
     "days": 28,
     "from": "2026-09-15",
@@ -9,27 +9,27 @@
   "environment": "github-pages",
   "metrics": {
     "deployment_frequency": {
-      "count": 2,
-      "per_week": 0.5,
+      "count": 3,
+      "per_week": 0.75,
       "level": "Medium"
     },
     "lead_time": {
       "median_hours": 0.008,
-      "mean_hours": 0.025,
-      "commits": 7,
+      "mean_hours": 0.022,
+      "commits": 9,
       "level": "Elite"
     },
     "mttr": {
-      "mean_hours": null,
-      "resolved": 0,
+      "mean_hours": 0.002,
+      "resolved": 1,
       "open": 0,
-      "level": null
+      "level": "Elite"
     },
     "change_failure_rate": {
-      "percent": 0.0,
-      "failed": 0,
-      "total": 2,
-      "level": "Elite"
+      "percent": 33.3,
+      "failed": 1,
+      "total": 3,
+      "level": "Medium"
     }
   },
   "daily_deployments": [
@@ -143,7 +143,7 @@
     },
     {
       "date": "2026-10-13",
-      "count": 2
+      "count": 3
     }
   ],
   "deployments": [
@@ -161,8 +161,26 @@
       "status": "success",
       "commits": 1,
       "lead_time_hours": 0.006,
+      "incident": 17
+    },
+    {
+      "sha": "61b8461",
+      "finished_at": "2026-10-13T06:19:53+00:00",
+      "status": "success",
+      "commits": 2,
+      "lead_time_hours": 0.009,
       "incident": null
     }
   ],
-  "incidents": []
+  "incidents": [
+    {
+      "number": 17,
+      "title": "[Incident][훈련] 대시보드 접속 불가 상황 대응 훈련",
+      "url": "https://github.com/ljh3534/OSS_ljh/issues/17",
+      "created_at": "2026-10-13T06:18:33+00:00",
+      "closed_at": "2026-10-13T06:18:41+00:00",
+      "hours_to_restore": 0.002,
+      "deployment_sha": "7fadfa9"
+    }
+  ]
 }
