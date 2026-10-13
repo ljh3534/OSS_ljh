@@ -6,7 +6,7 @@
 |---|---|---|
 | 1주차 | 개발 환경 설정 및 프로젝트 제안 | [환경 설정 기록](week01/README.md) · [프로젝트 제안서](week01/PROPOSAL.md) |
 | 2주차 | DORA 메트릭 수집 자동화 | [설명](week02/README.md) · [워크플로우](.github/workflows/dora-metrics.yml) · [대시보드](https://ljh3534.github.io/OSS_ljh/) · [주간 보고서](reports/weekly) |
-| 3주차 | GitHub Projects 계획·추적 체계 | [설명](week03/README.md) · [이슈](https://github.com/ljh3534/OSS_ljh/issues?q=is%3Aissue) · [마일스톤](https://github.com/ljh3534/OSS_ljh/milestones) |
+| 3주차 | GitHub Projects 계획·추적 체계 | [설명](week03/README.md) · [프로젝트 보드](https://github.com/users/ljh3534/projects/1) · [이슈](https://github.com/ljh3534/OSS_ljh/issues?q=is%3Aissue) · [마일스톤](https://github.com/ljh3534/OSS_ljh/milestones) |
 
 ## DORA 지표 현황
 

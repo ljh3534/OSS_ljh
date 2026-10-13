@@ -4,7 +4,9 @@
 
 ## 칸반 보드
 
-GitHub Project의 `Status` 필드를 다음 5개 컬럼으로 설정합니다.
+**[DORA Lens 프로젝트 보드](https://github.com/users/ljh3534/projects/1)**
+
+GitHub Project의 `Status` 필드를 다음 5개 컬럼으로 설정했습니다.
 
 | 컬럼 | 의미 | 들어오는 조건 |
 |---|---|---|
