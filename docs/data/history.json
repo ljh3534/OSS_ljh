@@ -3,8 +3,8 @@
     "date": "2026-10-13",
     "deployments_per_week": 1.0,
     "lead_time_hours": 0.009,
-    "mttr_hours": 0.002,
-    "change_failure_rate": 25.0
+    "mttr_hours": null,
+    "change_failure_rate": 0.0
   },
   {
     "date": "2026-10-15",
