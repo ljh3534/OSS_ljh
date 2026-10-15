@@ -5,220 +5,126 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>DORA 대시보드</title>
 <style>
-  :root {
-    color-scheme: light;
-    --page: #f4f4f2; --surface: #fcfcfb; --border: #e3e2de; --grid: #e9e8e4;
-    --text: #0b0b0b; --text-2: #52514e; --text-3: #7d7c77;
-    --series-1: #2a78d6; --series-2: #eb6834;
-    --good: #0ca30c; --warning: #fab219; --critical: #d03b3b;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-      color-scheme: dark;
-      --page: #111110; --surface: #1a1a19; --border: #30302d; --grid: #2a2a28;
-      --text: #ffffff; --text-2: #c3c2b7; --text-3: #8f8e86;
-      --series-1: #3987e5; --series-2: #d95926;
-    }
-  }
-  * { box-sizing: border-box; }
-  body { margin: 0; background: var(--page); color: var(--text);
-    font: 15px/1.5 -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", "Segoe UI", sans-serif; }
-  main { max-width: 1080px; margin: 0 auto; padding: 32px 16px 48px; }
-  h1 { font-size: 24px; margin: 0 0 4px; }
-  h2 { font-size: 15px; margin: 0 0 2px; }
-  a { color: inherit; }
-  .meta, .note { color: var(--text-2); font-size: 13px; margin: 0; }
-  .grid { display: grid; gap: 12px; margin-top: 20px; }
-  .kpis { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
-  .two { grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
-  .four { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
-  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 16px; min-width: 0; }
-  .kpi .label { color: var(--text-2); font-size: 13px; }
-  .kpi .value { font-size: 30px; font-weight: 650; letter-spacing: -0.02em; margin: 2px 0; font-variant-numeric: tabular-nums; }
-  .kpi .detail { color: var(--text-3); font-size: 12px; }
-  .level { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; color: var(--text-2);
-    border: 1px solid var(--border); border-radius: 999px; padding: 1px 9px 1px 7px; margin-bottom: 6px; }
-  .level i { width: 8px; height: 8px; border-radius: 50%; background: var(--text-3); }
-  .level[data-level="Elite"] i, .level[data-level="High"] i { background: var(--good); }
-  .level[data-level="Medium"] i { background: var(--warning); }
-  .level[data-level="Low"] i { background: var(--critical); }
-  .chart { position: relative; height: 220px; margin-top: 12px; }
-  .chart.small { height: 120px; }
-  section { margin-top: 28px; }
-  .scroll { overflow-x: auto; }
-  table { width: 100%; border-collapse: collapse; font-size: 13px; font-variant-numeric: tabular-nums; }
-  th, td { text-align: left; padding: 7px 10px; border-bottom: 1px solid var(--border); white-space: nowrap; }
-  th { color: var(--text-2); font-weight: 500; }
-  code { font: 12px ui-monospace, SFMono-Regular, Menlo, monospace; }
-  .empty { color: var(--text-3); font-size: 13px; padding: 8px 0; }
+  body { margin: 0; background: #f4f4f2; color: #222; font-family: -apple-system, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; }
+  main { max-width: 1000px; margin: 0 auto; padding: 24px 16px; }
+  h1 { margin: 0 0 4px; }
+  h2 { font-size: 16px; margin: 0 0 12px; }
+  .sub { color: #666; font-size: 14px; margin: 0 0 20px; }
+  .cards, .charts { display: grid; gap: 12px; margin-bottom: 12px; }
+  .cards { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+  .charts { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+  .box { background: white; border: 1px solid #ddd; border-radius: 8px; padding: 16px; }
+  .label { color: #666; font-size: 13px; }
+  .value { font-size: 28px; font-weight: bold; margin-top: 4px; }
+  .chart { height: 220px; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th, td { text-align: left; padding: 6px 8px; border-bottom: 1px solid #eee; }
+  th { color: #666; font-weight: normal; }
 </style>
 </head>
 <body>
 <main>
   <h1>DORA 대시보드</h1>
-  <p class="meta" id="meta">지표를 불러오는 중…</p>
+  <p class="sub" id="sub">불러오는 중…</p>
 
-  <div class="grid kpis" id="kpis"></div>
-
-  <div class="grid two">
-    <div class="card">
-      <h2>일별 배포 횟수</h2>
-      <p class="note">성공한 배포만 집계 (UTC 날짜 기준)</p>
-      <div class="chart"><canvas id="daily"></canvas></div>
-    </div>
-    <div class="card">
-      <h2>배포별 Lead Time</h2>
-      <p class="note" id="leadNote">커밋 시각부터 배포 완료까지의 중앙값</p>
-      <div class="chart"><canvas id="lead"></canvas></div>
-    </div>
+  <div class="cards">
+    <div class="box"><div class="label">Deployment Frequency</div><div class="value" id="df"></div></div>
+    <div class="box"><div class="label">Lead Time for Changes (중앙값)</div><div class="value" id="lt"></div></div>
+    <div class="box"><div class="label">MTTR</div><div class="value" id="mttr"></div></div>
+    <div class="box"><div class="label">Change Failure Rate</div><div class="value" id="cfr"></div></div>
   </div>
 
-  <section>
-    <h2>지표 추이</h2>
-    <p class="note">수집을 실행한 날마다 한 점씩 쌓입니다. 지표마다 단위가 달라 차트를 나눴습니다.</p>
-    <div class="grid four" id="trends"></div>
-  </section>
+  <div class="charts">
+    <div class="box"><h2>일별 배포 횟수</h2><div class="chart"><canvas id="dailyChart"></canvas></div></div>
+    <div class="box"><h2>배포별 Lead Time (분)</h2><div class="chart"><canvas id="leadChart"></canvas></div></div>
+  </div>
 
-  <section>
+  <div class="box" style="margin-bottom:12px">
     <h2>배포 내역</h2>
-    <div class="card scroll" style="margin-top:10px"><div id="deployments"></div></div>
-  </section>
+    <table><thead><tr><th>배포 시각</th><th>커밋</th><th>새 커밋 수</th><th>Lead Time</th></tr></thead><tbody id="deployRows"></tbody></table>
+  </div>
 
-  <section>
-    <h2>장애 내역</h2>
-    <p class="note"><code>incident</code> 라벨이 붙은 이슈. 생성부터 종료까지를 복구 시간으로 봅니다.</p>
-    <div class="card scroll" style="margin-top:10px"><div id="incidents"></div></div>
-  </section>
+  <div class="box">
+    <h2>장애 내역 (incident 라벨 이슈)</h2>
+    <table><thead><tr><th>이슈</th><th>복구까지</th></tr></thead><tbody id="incidentRows"></tbody></table>
+  </div>
 </main>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
 <script>
-// ?theme=light 로 열면 OS 설정과 무관하게 라이트 모드로 표시한다 (스크린샷용)
-if (new URLSearchParams(location.search).get("theme") === "light") document.documentElement.dataset.theme = "light";
-const $ = (id) => document.getElementById(id);
-const css = (name) => getComputedStyle(document.documentElement).getPropertyValue(name).trim();
-
-function duration(h) {
-  if (h == null) return "—";
-  if (h * 60 < 1) return `${Math.round(h * 3600)}초`;
-  if (h < 1) return `${Math.round(h * 60)}분`;
-  if (h < 48) return `${h.toFixed(1)}시간`;
-  return `${(h / 24).toFixed(1)}일`;
+// 시간(소수)을 '29초', '3분', '1.5시간'처럼 바꾼다
+function duration(hours) {
+  if (hours == null) return "—";
+  if (hours * 60 < 1) return Math.round(hours * 3600) + "초";
+  if (hours < 1) return Math.round(hours * 60) + "분";
+  if (hours < 48) return hours.toFixed(1) + "시간";
+  return (hours / 24).toFixed(1) + "일";
 }
-const localTime = (iso) => new Date(iso).toLocaleString("ko-KR",
-  { month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit", hour12: false });
-const shortDate = (d) => d.slice(5).replace("-", "/");
 
-// GitHub Pages에서는 main 브랜치의 최신 JSON을 직접 읽는다.
-// (수집 워크플로우의 커밋은 재배포를 일으키지 않으므로 배포본의 JSON은 오래됐을 수 있다)
-async function load(file) {
-  const sources = [`data/${file}`];
-  const owner = location.hostname.match(/^(.+)\.github\.io$/)?.[1];
-  const repo = location.pathname.split("/")[1];
-  if (owner && repo) {
-    sources.unshift(`https://raw.githubusercontent.com/${owner}/${repo}/main/docs/data/${file}?t=${Date.now()}`);
-  }
-  for (const url of sources) {
+function formatTime(iso) {
+  const d = new Date(iso);
+  return `${d.getMonth() + 1}/${d.getDate()} ${String(d.getHours()).padStart(2, "0")}:${String(d.getMinutes()).padStart(2, "0")}`;
+}
+
+// 수집 워크플로우가 main 브랜치에 커밋한 최신 JSON을 읽는다. (실패하면 같이 배포된 파일을 읽는다)
+async function loadMetrics() {
+  const urls = [
+    "https://raw.githubusercontent.com/ljh3534/OSS_ljh/main/docs/data/metrics.json?t=" + Date.now(),
+    "data/metrics.json",
+  ];
+  for (const url of urls) {
     try {
-      const res = await fetch(url, { cache: "no-store" });
+      const res = await fetch(url);
       if (res.ok) return await res.json();
-    } catch (e) { /* 다음 경로 시도 */ }
+    } catch (e) {}
   }
-  throw new Error(`${file}을(를) 불러오지 못했습니다`);
-}
-
-function renderKpis(m) {
-  const df = m.deployment_frequency, lt = m.lead_time, mttr = m.mttr, cfr = m.change_failure_rate;
-  const tiles = [
-    ["Deployment Frequency", `주 ${df.per_week}회`, df.level, `기간 내 성공 배포 ${df.count}회`],
-    ["Lead Time for Changes", duration(lt.median_hours), lt.level, `중앙값 · 커밋 ${lt.commits}개`],
-    ["MTTR", duration(mttr.mean_hours), mttr.level, `해결 ${mttr.resolved}건 · 미해결 ${mttr.open}건`],
-    ["Change Failure Rate", cfr.percent == null ? "—" : `${cfr.percent}%`, cfr.level, `실패 ${cfr.failed} / 전체 ${cfr.total} 배포`],
-  ];
-  $("kpis").innerHTML = tiles.map(([label, value, level, detail]) => `
-    <div class="card kpi">
-      <div class="label">${label}</div>
-      <div class="value">${value}</div>
-      <div class="level" data-level="${level ?? ""}"><i></i>${level ?? "데이터 없음"}</div>
-      <div class="detail">${detail}</div>
-    </div>`).join("");
-}
-
-function table(target, head, rows, empty) {
-  $(target).innerHTML = rows.length
-    ? `<table><thead><tr>${head.map((h) => `<th>${h}</th>`).join("")}</tr></thead>
-       <tbody>${rows.map((r) => `<tr>${r.map((c) => `<td>${c}</td>`).join("")}</tr>`).join("")}</tbody></table>`
-    : `<div class="empty">${empty}</div>`;
-}
-
-const charts = [];
-function chart(canvas, type, labels, data, color, format, extra = {}) {
-  const axis = { grid: { color: css("--grid") }, border: { display: false },
-    ticks: { color: css("--text-3"), font: { size: 11 }, maxRotation: 0, autoSkipPadding: 12 } };
-  charts.push(new Chart(canvas, {
-    type,
-    data: { labels, datasets: [{ data, backgroundColor: color, borderColor: color, borderWidth: type === "line" ? 2 : 0,
-      borderRadius: 4, maxBarThickness: 22, pointRadius: 4, pointHoverRadius: 6,
-      pointBorderColor: css("--surface"), pointBorderWidth: 2, spanGaps: true }] },
-    options: {
-      responsive: true, maintainAspectRatio: false, animation: false,
-      interaction: { mode: "index", intersect: false },
-      plugins: { legend: { display: false },
-        tooltip: { displayColors: false, callbacks: { label: (c) => format(c.parsed.y) } } },
-      scales: {
-        x: { ...axis, grid: { display: false } },
-        y: { ...axis, beginAtZero: true, ticks: { ...axis.ticks, maxTicksLimit: 5, callback: (v) => format(v), ...extra.yTicks } },
-      },
-    },
-  }));
-}
-
-function renderCharts(metrics, history) {
-  charts.splice(0).forEach((c) => c.destroy());
-  const blue = css("--series-1");
-
-  chart($("daily"), "bar", metrics.daily_deployments.map((d) => shortDate(d.date)),
-    metrics.daily_deployments.map((d) => d.count), blue, (v) => `${v}회`, { yTicks: { precision: 0 } });
-
-  const measured = metrics.deployments.filter((d) => d.lead_time_hours != null);
-  chart($("lead"), "line", measured.map((d) => localTime(d.finished_at)),
-    measured.map((d) => d.lead_time_hours), blue, duration);
-
-  const trends = [
-    ["Deployment Frequency", "deployments_per_week", (v) => `주 ${+v.toFixed(2)}회`],
-    ["Lead Time for Changes", "lead_time_hours", duration],
-    ["MTTR", "mttr_hours", duration],
-    ["Change Failure Rate", "change_failure_rate", (v) => `${+v.toFixed(1)}%`],
-  ];
-  $("trends").innerHTML = trends.map(([title], i) =>
-    `<div class="card"><h2>${title}</h2><div class="chart small"><canvas id="trend${i}"></canvas></div></div>`).join("");
-  trends.forEach(([, key, format], i) =>
-    chart($(`trend${i}`), "line", history.map((h) => shortDate(h.date)), history.map((h) => h[key]), blue, format));
+  throw new Error("metrics.json을 불러오지 못했습니다");
 }
 
 async function main() {
-  const [metrics, history] = await Promise.all([load("metrics.json"), load("history.json")]);
-  const repoUrl = `https://github.com/${metrics.repository}`;
-  $("meta").innerHTML = `<a href="${repoUrl}">${metrics.repository}</a> · ${metrics.window.from} ~ ${metrics.window.to} `
-    + `(최근 ${metrics.window.days}일) · ${localTime(metrics.generated_at)} 수집`;
+  const m = await loadMetrics();
 
-  renderKpis(metrics.metrics);
-  renderCharts(metrics, history);
-  matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => renderCharts(metrics, history));
+  document.getElementById("sub").textContent =
+    `${m.repository} · 최근 ${m.days}일 · ${formatTime(m.generated_at)} 수집`;
+  document.getElementById("df").textContent = `주 ${m.deployments_per_week}회`;
+  document.getElementById("lt").textContent = duration(m.lead_time_hours);
+  document.getElementById("mttr").textContent = duration(m.mttr_hours);
+  document.getElementById("cfr").textContent = m.change_failure_rate == null ? "—" : m.change_failure_rate + "%";
 
-  table("deployments", ["완료 시각", "커밋", "결과", "포함 커밋", "Lead Time", "연결된 장애"],
-    [...metrics.deployments].reverse().map((d) => [
-      localTime(d.finished_at), `<code>${d.sha}</code>`, d.status === "success" ? "성공" : "실패", d.commits,
-      duration(d.lead_time_hours), d.incident ? `<a href="${repoUrl}/issues/${d.incident}">#${d.incident}</a>` : "",
-    ]), "기간 내 배포가 없습니다.");
+  // 날짜별 배포 횟수 세기 (최근 14일)
+  const days = [];
+  const counts = [];
+  for (let i = 13; i >= 0; i--) {
+    const day = new Date(Date.now() - i * 24 * 60 * 60 * 1000);
+    days.push(`${day.getMonth() + 1}/${day.getDate()}`);
+    counts.push(m.deployments.filter((d) => new Date(d.time).toDateString() === day.toDateString()).length);
+  }
+  new Chart(document.getElementById("dailyChart"), {
+    type: "bar",
+    data: { labels: days, datasets: [{ label: "배포 횟수", data: counts, backgroundColor: "#2a78d6" }] },
+    options: { maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true, ticks: { precision: 0 } } } },
+  });
 
-  table("incidents", ["이슈", "발생", "복구까지", "원인 배포"],
-    metrics.incidents.map((i) => [
-      `<a href="${i.url}">#${i.number}</a> ${i.title.replace(/</g, "&lt;")}`, localTime(i.created_at),
-      i.closed_at ? duration(i.hours_to_restore) : "미해결", i.deployment_sha ? `<code>${i.deployment_sha}</code>` : "—",
-    ]), "기간 내 장애가 없습니다.");
+  const measured = m.deployments.filter((d) => d.lead_time_hours !== null);
+  new Chart(document.getElementById("leadChart"), {
+    type: "line",
+    data: {
+      labels: measured.map((d) => formatTime(d.time)),
+      datasets: [{ label: "Lead Time (분)", data: measured.map((d) => +(d.lead_time_hours * 60).toFixed(1)), borderColor: "#2a78d6", backgroundColor: "#2a78d6" }],
+    },
+    options: { maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true } } },
+  });
+
+  document.getElementById("deployRows").innerHTML = m.deployments.slice().reverse().map((d) =>
+    `<tr><td>${formatTime(d.time)}</td><td><code>${d.sha}</code></td><td>${d.commits}</td><td>${duration(d.lead_time_hours)}</td></tr>`
+  ).join("");
+
+  document.getElementById("incidentRows").innerHTML = m.incidents.length
+    ? m.incidents.map((i) => `<tr><td>#${i.number} ${i.title}</td><td>${duration(i.hours_to_restore)}</td></tr>`).join("")
+    : `<tr><td colspan="2">장애가 없습니다.</td></tr>`;
 }
-main().catch((e) => { $("meta").textContent = e.message; });
+
+main().catch((e) => { document.getElementById("sub").textContent = e.message; });
 </script>
 </body>
 </html>

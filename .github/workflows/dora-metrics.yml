@@ -56,7 +56,6 @@ jobs:
           name: dora-metrics-${{ github.run_number }}
           path: |
             docs/data/metrics.json
-            docs/data/history.json
             reports/weekly/
           retention-days: 90
 

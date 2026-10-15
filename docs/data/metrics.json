@@ -1,207 +1,53 @@
 {
   "repository": "ljh3534/OSS_ljh",
-  "generated_at": "2026-10-15T02:24:03+00:00",
-  "window": {
-    "days": 28,
-    "from": "2026-09-17",
-    "to": "2026-10-15"
-  },
-  "environment": "github-pages",
-  "metrics": {
-    "deployment_frequency": {
-      "count": 7,
-      "per_week": 1.75,
-      "level": "High"
-    },
-    "lead_time": {
-      "median_hours": 0.008,
-      "mean_hours": 2.907,
-      "commits": 15,
-      "level": "Elite"
-    },
-    "mttr": {
-      "mean_hours": null,
-      "resolved": 0,
-      "open": 0,
-      "level": null
-    },
-    "change_failure_rate": {
-      "percent": 0.0,
-      "failed": 0,
-      "total": 7,
-      "level": "Elite"
-    }
-  },
-  "daily_deployments": [
-    {
-      "date": "2026-09-18",
-      "count": 0
-    },
-    {
-      "date": "2026-09-19",
-      "count": 0
-    },
-    {
-      "date": "2026-09-20",
-      "count": 0
-    },
-    {
-      "date": "2026-09-21",
-      "count": 0
-    },
-    {
-      "date": "2026-09-22",
-      "count": 0
-    },
-    {
-      "date": "2026-09-23",
-      "count": 0
-    },
-    {
-      "date": "2026-09-24",
-      "count": 0
-    },
-    {
-      "date": "2026-09-25",
-      "count": 0
-    },
-    {
-      "date": "2026-09-26",
-      "count": 0
-    },
-    {
-      "date": "2026-09-27",
-      "count": 0
-    },
-    {
-      "date": "2026-09-28",
-      "count": 0
-    },
-    {
-      "date": "2026-09-29",
-      "count": 0
-    },
-    {
-      "date": "2026-09-30",
-      "count": 0
-    },
-    {
-      "date": "2026-10-01",
-      "count": 0
-    },
-    {
-      "date": "2026-10-02",
-      "count": 0
-    },
-    {
-      "date": "2026-10-03",
-      "count": 0
-    },
-    {
-      "date": "2026-10-04",
-      "count": 0
-    },
-    {
-      "date": "2026-10-05",
-      "count": 0
-    },
-    {
-      "date": "2026-10-06",
-      "count": 0
-    },
-    {
-      "date": "2026-10-07",
-      "count": 0
-    },
-    {
-      "date": "2026-10-08",
-      "count": 0
-    },
-    {
-      "date": "2026-10-09",
-      "count": 0
-    },
-    {
-      "date": "2026-10-10",
-      "count": 0
-    },
-    {
-      "date": "2026-10-11",
-      "count": 0
-    },
-    {
-      "date": "2026-10-12",
-      "count": 0
-    },
-    {
-      "date": "2026-10-13",
-      "count": 4
-    },
-    {
-      "date": "2026-10-14",
-      "count": 0
-    },
-    {
-      "date": "2026-10-15",
-      "count": 3
-    }
-  ],
+  "generated_at": "2026-10-15T04:35:31+00:00",
+  "days": 28,
+  "deployments_per_week": 1.75,
+  "lead_time_hours": 0.009,
+  "mttr_hours": null,
+  "change_failure_rate": 0.0,
   "deployments": [
     {
       "sha": "113deb2",
-      "finished_at": "2026-10-13T06:16:32+00:00",
-      "status": "success",
-      "commits": 6,
-      "lead_time_hours": 0.008,
-      "incident": null
+      "time": "2026-10-13T06:16:32+00:00",
+      "commits": 0,
+      "lead_time_hours": null
     },
     {
       "sha": "7fadfa9",
-      "finished_at": "2026-10-13T06:18:06+00:00",
-      "status": "success",
+      "time": "2026-10-13T06:18:06+00:00",
       "commits": 1,
-      "lead_time_hours": 0.006,
-      "incident": null
+      "lead_time_hours": 0.006
     },
     {
       "sha": "61b8461",
-      "finished_at": "2026-10-13T06:19:53+00:00",
-      "status": "success",
+      "time": "2026-10-13T06:19:53+00:00",
       "commits": 2,
-      "lead_time_hours": 0.009,
-      "incident": null
+      "lead_time_hours": 0.009
     },
     {
       "sha": "5a044bc",
-      "finished_at": "2026-10-13T06:21:32+00:00",
-      "status": "success",
+      "time": "2026-10-13T06:21:32+00:00",
       "commits": 1,
-      "lead_time_hours": 0.011,
-      "incident": null
+      "lead_time_hours": 0.011
     },
     {
       "sha": "5a62ea0",
-      "finished_at": "2026-10-15T01:52:44+00:00",
-      "status": "success",
+      "time": "2026-10-15T01:52:44+00:00",
       "commits": 2,
-      "lead_time_hours": 21.679,
-      "incident": null
+      "lead_time_hours": 21.679
     },
     {
       "sha": "a6c963a",
-      "finished_at": "2026-10-15T01:53:50+00:00",
-      "status": "success",
+      "time": "2026-10-15T01:53:50+00:00",
       "commits": 1,
-      "lead_time_hours": 0.006,
-      "incident": null
+      "lead_time_hours": 0.006
     },
     {
       "sha": "4f77efb",
-      "finished_at": "2026-10-15T02:23:55+00:00",
-      "status": "success",
+      "time": "2026-10-15T02:23:55+00:00",
       "commits": 2,
-      "lead_time_hours": 0.015,
-      "incident": null
+      "lead_time_hours": 0.015
     }
   ],
   "incidents": []
