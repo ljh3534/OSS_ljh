@@ -14,11 +14,11 @@
 ## DORA 지표 현황
 
 <!-- DORA:START -->
-_2026-10-15 13:39 KST 자동 갱신 · [이번 주 보고서](reports/weekly/2026-W42.md)_
+_2026-10-15 13:40 KST 자동 갱신 · [이번 주 보고서](reports/weekly/2026-W42.md)_
 
 | 지표 | 값 |
 |---|---|
-| Deployment Frequency | 주 2.25회 (최근 28일 동안 9회) |
+| Deployment Frequency | 주 2.5회 (최근 28일 동안 10회) |
 | Lead Time for Changes | 25초 (중앙값) |
 | MTTR | — (장애 0건) |
 | Change Failure Rate | 0.0% |
