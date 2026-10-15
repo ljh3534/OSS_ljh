@@ -1,9 +1,9 @@
 {
   "repository": "ljh3534/OSS_ljh",
-  "generated_at": "2026-10-15T04:35:31+00:00",
+  "generated_at": "2026-10-15T04:36:50+00:00",
   "days": 28,
-  "deployments_per_week": 1.75,
-  "lead_time_hours": 0.009,
+  "deployments_per_week": 2.0,
+  "lead_time_hours": 0.008,
   "mttr_hours": null,
   "change_failure_rate": 0.0,
   "deployments": [
@@ -48,6 +48,12 @@
       "time": "2026-10-15T02:23:55+00:00",
       "commits": 2,
       "lead_time_hours": 0.015
+    },
+    {
+      "sha": "9f5f498",
+      "time": "2026-10-15T04:36:42+00:00",
+      "commits": 1,
+      "lead_time_hours": 0.007
     }
   ],
   "incidents": []
