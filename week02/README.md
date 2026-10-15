@@ -1,12 +1,12 @@
 # 2주차 — DORA 메트릭 수집 자동화
 
-GitHub Actions로 이 저장소의 DORA 4대 지표를 자동 수집하고, Chart.js 대시보드와 주간 보고서로 보여 줍니다.
+GitHub Actions로 이 저장소(TimeFit 개발 저장소)의 DORA 4대 지표를 자동 수집하고, Chart.js 대시보드와 주간 보고서로 보여 줍니다. TimeFit을 개발하는 동안 배포 성과를 계속 측정하는 용도입니다.
 
 - 대시보드: <https://ljh3534.github.io/OSS_ljh/>
 - 워크플로우 실행 기록: <https://github.com/ljh3534/OSS_ljh/actions/workflows/dora-metrics.yml>
 - 주간 보고서: [reports/weekly](../reports/weekly)
 
-![DORA Lens 대시보드](../docs/assets/dashboard.png)
+![DORA 대시보드](../docs/assets/dashboard.png)
 
 ## 구성
 

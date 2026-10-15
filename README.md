@@ -1,6 +1,9 @@
 # OSS_ljh
 
-오픈소스SW 수업 과제 저장소입니다. 1~3주차 과제를 하나의 학기 프로젝트(**DORA Lens** — GitHub 저장소의 DORA 지표를 자동 수집·시각화하는 도구)로 이어서 진행합니다.
+오픈소스SW 수업 과제 저장소입니다. 학기 프로젝트 **TimeFit**(시간표 자동 조합 도우미)을 개발하면서, 주차별 실습(DORA 지표, GitHub Projects, CI/CD 등)을 이 저장소에 적용합니다.
+
+- 프로젝트 제안서: [week01/PROPOSAL.md](week01/PROPOSAL.md)
+- 프로젝트 보드: <https://github.com/users/ljh3534/projects/1>
 
 | 주차 | 과제 | 결과물 |
 |---|---|---|
@@ -21,7 +24,7 @@ _2026-09-15 ~ 2026-10-13 기준, 자동 생성됨 · [대시보드](https://ljh3
 | Change Failure Rate | 25% (1/4) | High | — |
 <!-- DORA:END -->
 
-[![DORA Lens 대시보드](docs/assets/dashboard.png)](https://ljh3534.github.io/OSS_ljh/)
+[![DORA 대시보드](docs/assets/dashboard.png)](https://ljh3534.github.io/OSS_ljh/)
 
 지표 정의와 수집 방식은 [week02/README.md](week02/README.md)에 정리했습니다.
 
@@ -31,7 +34,7 @@ _2026-09-15 ~ 2026-10-13 기준, 자동 생성됨 · [대시보드](https://ljh3
 .github/
   ISSUE_TEMPLATE/      Bug / Feature 이슈 템플릿
   workflows/           배포(deploy.yml), DORA 수집(dora-metrics.yml)
-docs/                  Chart.js 대시보드 (GitHub Pages로 배포)
+docs/                  DORA 지표 대시보드 (GitHub Pages로 배포)
 reports/weekly/        자동 생성되는 주간 DORA 보고서
 scripts/               지표 수집·분석 스크립트 (Python 표준 라이브러리만 사용)
 week01/ week02/ week03/  주차별 과제 설명
