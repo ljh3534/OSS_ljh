@@ -16,6 +16,7 @@
   .box { background: white; border: 1px solid #ddd; border-radius: 8px; padding: 16px; }
   .label { color: #666; font-size: 13px; }
   .value { font-size: 28px; font-weight: bold; margin-top: 4px; }
+  .level { color: #666; font-size: 13px; margin-top: 4px; }
   .chart { height: 220px; }
   table { width: 100%; border-collapse: collapse; font-size: 14px; }
   th, td { text-align: left; padding: 6px 8px; border-bottom: 1px solid #eee; }
@@ -28,10 +29,10 @@
   <p class="sub" id="sub">불러오는 중…</p>
 
   <div class="cards">
-    <div class="box"><div class="label">Deployment Frequency</div><div class="value" id="df"></div></div>
-    <div class="box"><div class="label">Lead Time for Changes (중앙값)</div><div class="value" id="lt"></div></div>
-    <div class="box"><div class="label">MTTR</div><div class="value" id="mttr"></div></div>
-    <div class="box"><div class="label">Change Failure Rate</div><div class="value" id="cfr"></div></div>
+    <div class="box"><div class="label">Deployment Frequency</div><div class="value" id="df"></div><div class="level" id="dfLevel"></div></div>
+    <div class="box"><div class="label">Lead Time for Changes (중앙값)</div><div class="value" id="lt"></div><div class="level" id="ltLevel"></div></div>
+    <div class="box"><div class="label">MTTR</div><div class="value" id="mttr"></div><div class="level" id="mttrLevel"></div></div>
+    <div class="box"><div class="label">Change Failure Rate</div><div class="value" id="cfr"></div><div class="level" id="cfrLevel"></div></div>
   </div>
 
   <div class="charts">
@@ -80,7 +81,7 @@ async function loadMetrics() {
     try {
       const res = await fetch(url, { cache: "no-store" });
       const data = await res.json();
-      if (data.days && (!newest || data.generated_at > newest.generated_at)) newest = data;
+      if (data.levels && (!newest || data.generated_at > newest.generated_at)) newest = data;
     } catch (e) {}
   }
   if (!newest) throw new Error("metrics.json을 불러오지 못했습니다");
@@ -96,6 +97,13 @@ async function main() {
   document.getElementById("lt").textContent = duration(m.lead_time_hours);
   document.getElementById("mttr").textContent = duration(m.mttr_hours);
   document.getElementById("cfr").textContent = m.change_failure_rate == null ? "—" : m.change_failure_rate + "%";
+
+  // 강의자료의 DORA 성과 수준 (Elite / High / Medium / Low)
+  const levelText = (level) => "성과 수준: " + (level || "데이터 없음");
+  document.getElementById("dfLevel").textContent = levelText(m.levels.deployment_frequency);
+  document.getElementById("ltLevel").textContent = levelText(m.levels.lead_time);
+  document.getElementById("mttrLevel").textContent = levelText(m.levels.mttr);
+  document.getElementById("cfrLevel").textContent = levelText(m.levels.change_failure_rate);
 
   // 날짜별 배포 횟수 세기 (최근 14일)
   const days = [];

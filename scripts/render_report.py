@@ -25,14 +25,15 @@ with open("docs/data/metrics.json", encoding="utf-8") as f:
 made = datetime.fromisoformat(m["generated_at"]).astimezone(KST)
 year, week, _ = made.isocalendar()
 cfr = "—" if m["change_failure_rate"] is None else f"{m['change_failure_rate']}%"
+lv = {k: v or "—" for k, v in m["levels"].items()}
 
 summary = [
-    "| 지표 | 값 |",
-    "|---|---|",
-    f"| Deployment Frequency | 주 {m['deployments_per_week']}회 (최근 {m['days']}일 동안 {len(m['deployments'])}회) |",
-    f"| Lead Time for Changes | {duration(m['lead_time_hours'])} (중앙값) |",
-    f"| MTTR | {duration(m['mttr_hours'])} (장애 {len(m['incidents'])}건) |",
-    f"| Change Failure Rate | {cfr} |",
+    "| 지표 | 값 | 성과 수준 |",
+    "|---|---|---|",
+    f"| Deployment Frequency | 주 {m['deployments_per_week']}회 (최근 {m['days']}일 동안 {len(m['deployments'])}회) | {lv['deployment_frequency']} |",
+    f"| Lead Time for Changes | {duration(m['lead_time_hours'])} (중앙값) | {lv['lead_time']} |",
+    f"| MTTR | {duration(m['mttr_hours'])} (장애 {len(m['incidents'])}건) | {lv['mttr']} |",
+    f"| Change Failure Rate | {cfr} (실패한 배포 {m['failed_deployments']}회) | {lv['change_failure_rate']} |",
 ]
 
 report = [f"# 주간 DORA 보고서 — {year}년 {week}주차", "",

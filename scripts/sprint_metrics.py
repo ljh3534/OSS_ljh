@@ -1,6 +1,6 @@
 """이슈와 마일스톤으로 Cycle Time, Velocity, Burndown을 계산해 week03/ANALYSIS.md를 만든다.
 
-스토리 포인트는 'sp: 3' 같은 라벨에서 읽고, 스프린트는 마감일까지 2주(14일)라고 본다.
+스토리 포인트는 size 라벨(XS=1, S=2, M=3, L=5, XL=8)에서 읽고, 스프린트는 마감일까지 2주(14일)라고 본다.
 """
 import json
 import os
@@ -25,11 +25,14 @@ def to_time(text):
     return datetime.fromisoformat(text.replace("Z", "+00:00"))
 
 
+SIZE_POINTS = {"size: XS": 1, "size: S": 2, "size: M": 3, "size: L": 5, "size: XL": 8}
+
+
 def points(issue):
-    """'sp: 3' 라벨이 있으면 3, 없으면 0"""
+    """size 라벨을 스토리 포인트로 바꾼다. 라벨이 없으면 0"""
     for label in issue["labels"]:
-        if label["name"].startswith("sp:"):
-            return int(label["name"].split(":")[1])
+        if label["name"] in SIZE_POINTS:
+            return SIZE_POINTS[label["name"]]
     return 0
 
 

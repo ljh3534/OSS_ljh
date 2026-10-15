@@ -33,4 +33,6 @@ $ git push -u origin main
 
 ## 2. 프로젝트 제안서
 
-[PROPOSAL.md](PROPOSAL.md) — 프로젝트명, 문제정의, 핵심 기능 3개, 기술 스택, 16주 마일스톤 초안.
+[PROPOSAL.md](PROPOSAL.md) — 오리엔테이션 자료의 제안서 양식(기본 정보, 기술 스택, 주요 기능, 마일스톤)에 맞춰 작성했습니다.
+
+같은 내용을 `project-proposal` 라벨을 붙인 [GitHub Issue](https://github.com/ljh3534/OSS_ljh/issues?q=label%3Aproject-proposal)로도 등록했습니다.
