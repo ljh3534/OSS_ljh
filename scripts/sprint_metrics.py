@@ -49,7 +49,9 @@ def burndown(milestone, issues, today, start):
 def main():
     now = datetime.now(timezone.utc)
     today = now.astimezone(KST).date()
-    issues = [i for i in api(f"/repos/{REPO}/issues", state="all", per_page=100) if "pull_request" not in i]
+    # PR과, 하지 않기로 하고 닫은(not planned) 이슈는 제외한다
+    issues = [i for i in api(f"/repos/{REPO}/issues", state="all", per_page=100)
+              if "pull_request" not in i and i.get("state_reason") != "not_planned"]
     milestones = sorted(api(f"/repos/{REPO}/milestones", state="all"), key=lambda m: m["number"])
     closed = [i for i in issues if i["closed_at"]]
 
