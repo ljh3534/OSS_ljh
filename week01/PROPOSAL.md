@@ -22,11 +22,12 @@
 
 | 영역 | 기술 | 선택 이유 |
 |---|---|---|
-| 프론트엔드 | TypeScript, Vite, 바닐라 DOM | 빌드가 빠르고 정적 파일로 배포 가능 |
-| 조합 엔진 | TypeScript 모듈 (UI와 분리) | 단위 테스트와 npm 패키지 배포가 쉬움 |
-| 저장 | 브라우저 localStorage, URL 공유 | 서버·로그인 없이 동작 |
-| 테스트 | Vitest, Playwright | 조합 로직 단위 테스트, 화면 E2E 테스트 |
-| CI/CD | GitHub Actions | 테스트·빌드·배포 자동화, DORA 지표 수집 |
+| 화면 | HTML, CSS, JavaScript | 별도 프레임워크나 빌드 도구 없이 기본 웹 기술만으로 구현 |
+| 조합 로직 | JavaScript 모듈 (화면 코드와 분리) | 따로 테스트하고, 나중에 npm 패키지로 분리하기 쉬움 |
+| 알고리즘 | 재귀 백트래킹 | 자료구조·알고리즘 수업 내용 활용. 시간이 겹치는 순간 그 경로는 더 탐색하지 않음 |
+| 저장 | 브라우저 localStorage | 서버·DB·로그인 없이 동작 |
+| 테스트 | Jest | 가장 널리 쓰이는 JavaScript 테스트 도구, 자료가 많음 |
+| CI/CD | GitHub Actions | 테스트·배포 자동화, DORA 지표 수집 |
 | 호스팅 | GitHub Pages | 무료, 저장소와 같은 곳에서 배포 이력 관리 |
 | 계획·추적 | GitHub Issues / Projects / Milestones | 백로그와 스프린트를 코드와 같은 곳에서 관리 |
 
@@ -39,15 +40,15 @@
 | 1 | 개발 환경 설정, 프로젝트 제안 | 개발 환경 설정 및 프로젝트 제안 |
 | 2 | 배포 파이프라인과 DORA 지표 자동 수집 | DORA 메트릭 수집 자동화 |
 | 3 | 백로그·스프린트 구성 | GitHub Projects 계획·추적 |
-| 4 | 과목 입력 화면과 조합 엔진 MVP를 PR 단위로 개발 | GitHub Flow 및 코드리뷰 |
+| 4 | 과목 입력 화면과 조합 로직 MVP를 PR 단위로 개발 | GitHub Flow 및 코드리뷰 |
 | 5 | 시간표 데이터 형식, 정렬 기준 등 설계 결정 기록 | Discussions / Wiki / ADR |
 | 6 | 오픈소스 라이선스, CONTRIBUTING, good first issue 정리 | 오픈소스 실습 및 Inner Source |
-| 7 | 빌드·테스트·배포 CI/CD 구성 | GitHub Actions 기본 CI/CD |
+| 7 | 테스트·배포 CI/CD 구성 | GitHub Actions 기본 CI/CD |
 | 8 | **중간 점검** — MVP 공개, 워크플로우 캐싱·재사용 | 워크플로우 실행 최적화 |
-| 9 | 조합 엔진을 npm 패키지로 분리, 의존성 보안 점검 | GitHub Packages 및 의존성 보안 |
-| 10 | 웹 + PWA(모바일 설치형) 배포 | 멀티 플랫폼 배포 자동화 |
+| 9 | 조합 로직을 npm 패키지로 분리, Dependabot으로 의존성 점검 | GitHub Packages 및 의존성 보안 |
+| 10 | 모바일 화면 대응, 홈 화면에 설치 가능한 웹앱(PWA)으로 배포 | 멀티 플랫폼 배포 자동화 |
 | 11 | 조건 점수·공유 기능을 플래그로 점진 공개 | Feature Flags 및 점진적 배포 |
-| 12 | 조합 엔진 단위 테스트, 화면 E2E 테스트 | Shift-Left 테스트 자동화 |
+| 12 | Jest로 조합 로직 단위 테스트, PR마다 자동 실행 | Shift-Left 테스트 자동화 |
 | 13 | 다음 학기 수강신청을 준비하는 학생 대상 사용 실험, 지표 수집 | Lean Startup 실험 운영 |
 | 14 | 실험 결과를 반영한 개선 | |
 | 15 | 문서화, 버그 수정, v1.0 릴리스 후보 | |

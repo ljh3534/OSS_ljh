@@ -62,7 +62,7 @@ push (main) ──▶ Deploy 워크플로우 ──▶ GitHub Pages 배포 (gith
 ## 참고: 현재 데이터에 대해
 
 - 저장소를 만든 직후라 배포·커밋이 하루에 몰려 있습니다. Lead Time이 분 단위로 짧게 나오는 것은 커밋 직후 바로 배포했기 때문입니다.
-- MTTR과 Change Failure Rate가 계산되는지 확인하려고 장애 대응 훈련 이슈([#17](https://github.com/ljh3534/OSS_ljh/issues/17))를 등록했습니다. 실제 장애가 아니며, 이슈에서 `incident` 라벨을 떼면 지표에서 제외됩니다.
+- 아직 장애(`incident` 라벨 이슈)가 없어 MTTR은 `—`, Change Failure Rate는 0%로 표시됩니다. 장애가 생기면 Bug 템플릿으로 등록하고 `incident` 라벨을 붙이면 다음 수집부터 자동으로 반영됩니다.
 
 ## 로컬 실행
 
