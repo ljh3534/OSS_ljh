@@ -18,11 +18,11 @@
 ## DORA 지표 현황
 
 <!-- DORA:START -->
-_2026-10-15 13:51 KST 자동 갱신 · [이번 주 보고서](reports/weekly/2026-W42.md)_
+_2026-10-15 13:52 KST 자동 갱신 · [이번 주 보고서](reports/weekly/2026-W42.md)_
 
 | 지표 | 값 | 성과 수준 |
 |---|---|---|
-| Deployment Frequency | 주 2.75회 (최근 28일 동안 11회) | High |
+| Deployment Frequency | 주 3.0회 (최근 28일 동안 12회) | High |
 | Lead Time for Changes | 25초 (중앙값) | Elite |
 | MTTR | — (장애 0건) | — |
 | Change Failure Rate | 0.0% (실패한 배포 0회) | Elite |
