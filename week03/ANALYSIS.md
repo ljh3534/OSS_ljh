@@ -1,6 +1,6 @@
 # 스프린트 지표 분석
 
-_2026-10-15 11:23 KST 기준 · `scripts/sprint_metrics.py`가 자동 생성_
+_2026-10-15 11:24 KST 기준 · `scripts/sprint_metrics.py`가 자동 생성_
 
 ## Cycle Time
 

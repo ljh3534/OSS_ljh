@@ -1,6 +1,6 @@
 {
   "repository": "ljh3534/OSS_ljh",
-  "generated_at": "2026-10-15T02:22:58+00:00",
+  "generated_at": "2026-10-15T02:24:03+00:00",
   "window": {
     "days": 28,
     "from": "2026-09-17",
@@ -9,14 +9,14 @@
   "environment": "github-pages",
   "metrics": {
     "deployment_frequency": {
-      "count": 6,
-      "per_week": 1.5,
+      "count": 7,
+      "per_week": 1.75,
       "level": "High"
     },
     "lead_time": {
       "median_hours": 0.008,
-      "mean_hours": 3.352,
-      "commits": 13,
+      "mean_hours": 2.907,
+      "commits": 15,
       "level": "Elite"
     },
     "mttr": {
@@ -28,7 +28,7 @@
     "change_failure_rate": {
       "percent": 0.0,
       "failed": 0,
-      "total": 6,
+      "total": 7,
       "level": "Elite"
     }
   },
@@ -143,7 +143,7 @@
     },
     {
       "date": "2026-10-15",
-      "count": 2
+      "count": 3
     }
   ],
   "deployments": [
@@ -193,6 +193,14 @@
       "status": "success",
       "commits": 1,
       "lead_time_hours": 0.006,
+      "incident": null
+    },
+    {
+      "sha": "4f77efb",
+      "finished_at": "2026-10-15T02:23:55+00:00",
+      "status": "success",
+      "commits": 2,
+      "lead_time_hours": 0.015,
       "incident": null
     }
   ],
