@@ -1,6 +1,6 @@
 {
   "repository": "ljh3534/OSS_ljh",
-  "generated_at": "2026-10-15T01:53:58+00:00",
+  "generated_at": "2026-10-15T02:22:58+00:00",
   "window": {
     "days": 28,
     "from": "2026-09-17",
@@ -20,16 +20,16 @@
       "level": "Elite"
     },
     "mttr": {
-      "mean_hours": 0.002,
-      "resolved": 1,
+      "mean_hours": null,
+      "resolved": 0,
       "open": 0,
-      "level": "Elite"
+      "level": null
     },
     "change_failure_rate": {
-      "percent": 16.7,
-      "failed": 1,
+      "percent": 0.0,
+      "failed": 0,
       "total": 6,
-      "level": "High"
+      "level": "Elite"
     }
   },
   "daily_deployments": [
@@ -161,7 +161,7 @@
       "status": "success",
       "commits": 1,
       "lead_time_hours": 0.006,
-      "incident": 17
+      "incident": null
     },
     {
       "sha": "61b8461",
@@ -196,15 +196,5 @@
       "incident": null
     }
   ],
-  "incidents": [
-    {
-      "number": 17,
-      "title": "[Incident][훈련] 대시보드 접속 불가 상황 대응 훈련",
-      "url": "https://github.com/ljh3534/OSS_ljh/issues/17",
-      "created_at": "2026-10-13T06:18:33+00:00",
-      "closed_at": "2026-10-13T06:18:41+00:00",
-      "hours_to_restore": 0.002,
-      "deployment_sha": "7fadfa9"
-    }
-  ]
+  "incidents": []
 }
