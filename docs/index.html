@@ -66,19 +66,25 @@ function formatTime(iso) {
   return `${d.getMonth() + 1}/${d.getDate()} ${String(d.getHours()).padStart(2, "0")}:${String(d.getMinutes()).padStart(2, "0")}`;
 }
 
-// 수집 워크플로우가 main 브랜치에 커밋한 최신 JSON을 읽는다. (실패하면 같이 배포된 파일을 읽는다)
+// 지표 파일은 두 곳에 있다.
+//  1) 사이트와 함께 배포된 data/metrics.json
+//  2) 수집 워크플로우가 main 브랜치에 커밋한 최신 파일 (봇 커밋은 재배포를 일으키지 않으므로 1보다 새로울 수 있다)
+// 둘 다 읽어서 더 최근에 수집된 쪽을 쓴다.
 async function loadMetrics() {
   const urls = [
-    "https://raw.githubusercontent.com/ljh3534/OSS_ljh/main/docs/data/metrics.json?t=" + Date.now(),
     "data/metrics.json",
+    "https://raw.githubusercontent.com/ljh3534/OSS_ljh/main/docs/data/metrics.json?t=" + Date.now(),
   ];
+  let newest = null;
   for (const url of urls) {
     try {
-      const res = await fetch(url);
-      if (res.ok) return await res.json();
+      const res = await fetch(url, { cache: "no-store" });
+      const data = await res.json();
+      if (data.days && (!newest || data.generated_at > newest.generated_at)) newest = data;
     } catch (e) {}
   }
-  throw new Error("metrics.json을 불러오지 못했습니다");
+  if (!newest) throw new Error("metrics.json을 불러오지 못했습니다");
+  return newest;
 }
 
 async function main() {
