@@ -14,14 +14,14 @@
 ## DORA 지표 현황
 
 <!-- DORA:START -->
-_2026-09-15 ~ 2026-10-13 기준, 자동 생성됨 · [대시보드](https://ljh3534.github.io/OSS_ljh/) · [이번 주 보고서](reports/weekly/2026-W42.md)_
+_2026-09-17 ~ 2026-10-15 기준, 자동 생성됨 · [대시보드](https://ljh3534.github.io/OSS_ljh/) · [이번 주 보고서](reports/weekly/2026-W42.md)_
 
 | 지표 | 값 | 등급 | 전주 대비 |
 |---|---|---|---|
-| Deployment Frequency | 주 1회 (기간 내 4회) | High | — |
-| Lead Time for Changes | 32초 (중앙값, 커밋 10개) | Elite | — |
+| Deployment Frequency | 주 1.25회 (기간 내 5회) | High | — |
+| Lead Time for Changes | 32초 (중앙값, 커밋 12개) | Elite | — |
 | MTTR | 7초 (해결 1건, 미해결 0건) | Elite | — |
-| Change Failure Rate | 25% (1/4) | High | — |
+| Change Failure Rate | 20% (1/5) | High | — |
 <!-- DORA:END -->
 
 [![DORA 대시보드](docs/assets/dashboard.png)](https://ljh3534.github.io/OSS_ljh/)

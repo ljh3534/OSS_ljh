@@ -1,6 +1,6 @@
 # 스프린트 지표 분석
 
-_2026-10-13 15:21 KST 기준 · `scripts/sprint_metrics.py`가 자동 생성_
+_2026-10-15 10:52 KST 기준 · `scripts/sprint_metrics.py`가 자동 생성_
 
 ## Cycle Time
 
@@ -8,7 +8,7 @@ _2026-10-13 15:21 KST 기준 · `scripts/sprint_metrics.py`가 자동 생성_
 
 | 완료 이슈 | 평균 | 중앙값 | 최소 | 최대 |
 |---|---|---|---|---|
-| 10건 | 4분 | 4분 | 4초 | 8분 |
+| 17건 | 18.0시간 | 7분 | 4초 | 43.6시간 |
 
 | 이슈 | 포인트 | Cycle Time |
 |---|---|---|
@@ -20,6 +20,13 @@ _2026-10-13 15:21 KST 기준 · `scripts/sprint_metrics.py`가 자동 생성_
 | [#6](https://github.com/ljh3534/OSS_ljh/issues/6) [Chore] 이슈 템플릿(Bug/Feature)과 라벨 체계 정리 | 1 | 7분 |
 | [#7](https://github.com/ljh3534/OSS_ljh/issues/7) [Docs] README에 대시보드 이미지와 지표 정의 정리 | 2 | 8분 |
 | [#8](https://github.com/ljh3534/OSS_ljh/issues/8) [Feature] 스프린트 지표(Cycle Time·Velocity·Burndown) 분석 스크립트 | 3 | 7분 |
+| [#9](https://github.com/ljh3534/OSS_ljh/issues/9) [Feature] 수집 스크립트 단위 테스트 및 CI | 3 | 43.6시간 |
+| [#10](https://github.com/ljh3534/OSS_ljh/issues/10) [Feature] 다중 저장소 수집 지원 | 5 | 43.6시간 |
+| [#11](https://github.com/ljh3534/OSS_ljh/issues/11) [Feature] 지표 악화 시 알림 이슈 자동 생성 | 3 | 43.6시간 |
+| [#12](https://github.com/ljh3534/OSS_ljh/issues/12) [Feature] 대시보드 기간 필터 (7일/28일/90일) | 2 | 43.6시간 |
+| [#13](https://github.com/ljh3534/OSS_ljh/issues/13) [Docs] 사용 가이드와 CONTRIBUTING 작성 | 2 | 43.6시간 |
+| [#14](https://github.com/ljh3534/OSS_ljh/issues/14) [Feature] Grafana 연동 검토 | 0 | 43.6시간 |
+| [#15](https://github.com/ljh3534/OSS_ljh/issues/15) [Feature] 재사용 가능한 GitHub Action으로 패키징 | 0 | 43.6시간 |
 | [#16](https://github.com/ljh3534/OSS_ljh/issues/16) [Bug] 1분 미만 Lead Time이 "0분"으로 표시됨 | 1 | 4초 |
 | [#17](https://github.com/ljh3534/OSS_ljh/issues/17) [Incident][훈련] 대시보드 접속 불가 상황 대응 훈련 | 0 | 8초 |
 
@@ -29,18 +36,27 @@ _2026-10-13 15:21 KST 기준 · `scripts/sprint_metrics.py`가 자동 생성_
 
 | 스프린트 | 마감 | 이슈 (완료/전체) | 계획 포인트 | 완료 포인트 | 달성률 |
 |---|---|---|---|---|---|
-| Sprint 1 — 수집·대시보드 MVP | 10-26 | 9/9 | 25 | 25 | 100% |
-| Sprint 2 — 정확도·확장 | 11-09 | 0/5 | 15 | 0 | 0% |
+| Sprint 1 — 개발 인프라 (배포·DORA·백로그) | 10-26 | 9/9 | 25 | 25 | 100% |
+| Sprint 2 — TimeFit MVP | 11-09 | 5/12 | 33 | 15 | 45% |
 
 ## Burndown
 
-### Sprint 1 — 수집·대시보드 MVP
+### Sprint 1 — 개발 인프라 (배포·DORA·백로그)
+
+```mermaid
+xychart-beta
+    title "남은 스토리 포인트 (선 1: 이상적, 선 2: 실제)"
+    x-axis ["10/13", "10/14", "10/15"]
+    y-axis "포인트" 0 --> 25
+    line [25, 23.1, 21.2]
+    line [0, 0, 0]
+```
 
 | 날짜 | 이상적 잔여 | 실제 잔여 |
 |---|---|---|
 | 10-13 | 25 | 0 |
-| 10-14 | 23.1 |  |
-| 10-15 | 21.2 |  |
+| 10-14 | 23.1 | 0 |
+| 10-15 | 21.2 | 0 |
 | 10-16 | 19.2 |  |
 | 10-17 | 17.3 |  |
 | 10-18 | 15.4 |  |
@@ -53,21 +69,21 @@ _2026-10-13 15:21 KST 기준 · `scripts/sprint_metrics.py`가 자동 생성_
 | 10-25 | 1.9 |  |
 | 10-26 | 0 |  |
 
-### Sprint 2 — 정확도·확장
+### Sprint 2 — TimeFit MVP
 
 | 날짜 | 이상적 잔여 | 실제 잔여 |
 |---|---|---|
-| 10-27 | 15 |  |
-| 10-28 | 13.8 |  |
-| 10-29 | 12.7 |  |
-| 10-30 | 11.5 |  |
-| 10-31 | 10.4 |  |
-| 11-01 | 9.2 |  |
-| 11-02 | 8.1 |  |
-| 11-03 | 6.9 |  |
-| 11-04 | 5.8 |  |
-| 11-05 | 4.6 |  |
-| 11-06 | 3.5 |  |
-| 11-07 | 2.3 |  |
-| 11-08 | 1.2 |  |
+| 10-27 | 33 |  |
+| 10-28 | 30.5 |  |
+| 10-29 | 27.9 |  |
+| 10-30 | 25.4 |  |
+| 10-31 | 22.8 |  |
+| 11-01 | 20.3 |  |
+| 11-02 | 17.8 |  |
+| 11-03 | 15.2 |  |
+| 11-04 | 12.7 |  |
+| 11-05 | 10.2 |  |
+| 11-06 | 7.6 |  |
+| 11-07 | 5.1 |  |
+| 11-08 | 2.5 |  |
 | 11-09 | 0 |  |
